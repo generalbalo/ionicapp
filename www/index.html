@@ -14,7 +14,7 @@
 
     <!-- ionic/angularjs js -->
     <script src="lib/ionic/js/ionic.bundle.js"></script>
-
+ 
     <!-- cordova script (this will be a 404 during development) -->
     <script src="cordova.js"></script>
 
@@ -24,11 +24,17 @@
   <body ng-app="starter">
 
     <ion-pane>
-      <ion-header-bar class="bar-stable">
+      <ion-header-bar class="bar-positive">
+         <button class="button"><i class="icon ion-ios-navigate-outline"></i></button>
         <h1 class="title">Ionic Blank Starter</h1>
-      </ion-header-bar>
-      <ion-content>
-      </ion-content>
+        <button class="button"><i class="icon ion-ios-gear"></i></button>
+      </ion-header-bar>    
+
     </ion-pane>
+<ion-tabs class="tabs-icon-top">
+  <ion-tab icon="ion-home" badge="3" badge-style="badge-assertive" title="Home"></ion-tab>
+  <ion-tab icon="ion-person" title="About"></ion-tab>
+  <ion-tab icon="ion-calendar" title="Calendar"></ion-tab>
+</ion-tabs>
   </body>
 </html>
