@@ -1,0 +1,40 @@
+<ion-header-bar class="bar-assertive">
+      <h2 class="title">Calendar</h2>
+</ion-header-bar>
+
+<ion-view view-title="Calendar">
+<div class="bar bar-subheader item-input-inset bar-light">
+      <label class="item-input-wrapper">
+        <i class="icon ion-search placeholder-icon"></i>
+        <input ng-model="search" type="search" placeholder="Search"/>
+      </label>
+    </div>
+<ion-content class="has-subheader">
+<div class="day" data-ng-repeat="(dayIndex,day) in calendar">
+    <div class="item item-divider item-divider-calm">
+        {{day.weekday}}
+    </div>
+    <div data-ng-show="day.title" class="item item-list item-text-wrap dayhighlight">
+        <h2>{{day.title}}</h2>
+        {{day.description}}
+    </div>
+
+    <ion-list>
+        <ion-item ng-class="{'item-avatar':item.shortname, 'star': item.star}" class="item-text-wrap item-icon-right" ng-repeat="item in day.schedule | filter:search" href="#!">
+            <img ng-show="item.shortname" ng-src="img/{{item.shortname}}_tn.jpg" alt="{{item.name}} Photo">
+            <h2>{{item.time}}</h2>
+            <h3>{{item.title}}</h3>
+            <h4>{{item.artist ? 'with' + item.artist : ''}}</h4>
+            <p>{{item.description}}</p>
+
+            <button class="button button-clear icon ion-star button-assertive" data-ng-click="toggleStar(item)" ng-show="item.star"></button>
+
+            <ion-option-button class="button-calm" ng-click="toggleStar(item)"><i class="icon ion-star"></i></ion-option-button>
+
+            <ion-option-button class="button-assertive" ng-click="itemDelete(dayIndex,item)"><i class="icon ion-ion-trash-a"></i></ion-option-button>
+        </ion-item>
+    </ion-list>
+</div>
+
+</ion-content>
+</ion-view>

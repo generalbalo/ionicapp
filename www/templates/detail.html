@@ -1,0 +1,19 @@
+<ion-header-bar class="bar-assertive">
+     <a 
+      class="button button-clear ion-android-arrow-back" ng-href="#/tab/list"> Artist List
+     </a>
+</ion-header-bar>
+
+<ion-view>
+    <ion-content>
+        <ion-list class="list-inset">
+            <ion-item class="item-text-wrap"
+                data-ng-repeat="item in artists | filter: {shortname: whichartist}"> 
+              <img ng-src="img/{{item.shortname}}_tn.jpg" alt="{{item.name}} Photo"/>
+          <h2>{{item.name}}</h2>
+          <h3>{{item.reknown}}</h3>
+          <p>{{item.bio}}</p> 
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
